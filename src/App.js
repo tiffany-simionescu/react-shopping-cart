@@ -19,10 +19,16 @@ function App() {
 		setCart([...cart, item]);
 	};
 
+	// STRETCH PROBLEM
+	const removeItem = id => {
+		const itemWasRemoved = cart.filter(item => item.id !== id);
+		setCart(itemWasRemoved);
+	};
+
 	return (
 		<div className="App">
 			<ProductContext.Provider value={{ products, addItem }}>
-				<CartContext.Provider value={{cart}}>
+				<CartContext.Provider value={{cart, removeItem}}>
 					<Navigation />
 
 					{/* Routes */}
